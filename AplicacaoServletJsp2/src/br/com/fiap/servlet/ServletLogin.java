@@ -1,15 +1,14 @@
 package br.com.fiap.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.fiap.dao.GenericDao;
 import br.com.fiap.entity.Usuario;
@@ -47,6 +46,11 @@ public class ServletLogin extends HttpServlet {
 		try {
 			Usuario usuario = dao.buscar(nome, senha);
 			if(usuario != null){
+				//Armazena ususario em sessao
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario_sessao", usuario);
+						
+				// nova requisicao
 				response.sendRedirect("admin/menu.jsp");
 			}
 			else {

@@ -18,6 +18,7 @@
 	<ul>
 		<li><a href="cadUsuarios.jsp">Cadastro de Usuários</a></li>
 		<li><a href="cadLivros.jsp">Cadastro de Livros</a></li>
+		<a href="logOFF">LogOFF</a>
 	</ul>
 </body>
 </html>
